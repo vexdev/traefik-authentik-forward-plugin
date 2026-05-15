@@ -233,8 +233,8 @@ func TestRequest(t *testing.T) {
 
 			// check that the original uri header is set
 			expectedURI := "https://example.com/protected?query=value"
-			if r.Header.Get("X-Original-Uri") != expectedURI {
-				t.Errorf("expected X-Original-Uri to be %s, got %s", expectedURI, r.Header.Get("X-Original-Uri"))
+			if r.Header.Get("X-Original-Url") != expectedURI {
+				t.Errorf("expected X-Original-Url to be %s, got %s", expectedURI, r.Header.Get("X-Original-Url"))
 			}
 
 			// check that the sent cookies are set correctly
