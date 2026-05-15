@@ -24,6 +24,10 @@
 
 </div>
 
+## ⚠️ Required update for Authentik 2025.12.5+ and 2026.2.3+
+
+Authentik 2025.12.5 and 2026.2.3 include a [security fix](https://github.com/goauthentik/authentik/security/advisories/GHSA-5wcc-hf24-rf5h) that drops support for the non-standard `X-Original-Uri` header. Previous versions of this plugin were sending that header, which means they will stop working with those Authentik releases and later. **If you are running Authentik 2025.12.5, 2026.2.3, or newer, you must upgrade this plugin.** This release switches to the correct `X-Original-Url` header and remains fully compatible with older Authentik versions as well.
+
 ## What is this?
 
 This plugin provides forward authentication specifically designed for [Authentik](https://goauthentik.io/), an open-source identity provider. It works as a Traefik middleware and integrates directly with Authentik's proxy outposts to provide authentication and authorization for your services.
@@ -58,7 +62,7 @@ You can even define different auth behaviors for APIs and websites with just a f
 
 Authentik provides multiple outpost endpoints. This plugin uses the `/outpost.goauthentik.io/auth/nginx` one because it gives more control. Unlike the Traefik endpoint, which always returns `302` redirects, this one returns `401` responses, which lets you decide what to do: deny the request, redirect to login or even skip auth entirely for some paths. This puts the decision of how to handle unauthorized requests closer to your app logic.
 
-It also avoids problems caused by proxies, load balancers, or CDNs that often mess with `X-Forwarded-*` HTTP headers required by the Traefik endpoint. Instead, the nginx endpoint uses an additional `X-Original-Uri` header, which stays intact across hops. This makes your auth setup more reliable and predictable.
+It also avoids problems caused by proxies, load balancers, or CDNs that often mess with `X-Forwarded-*` HTTP headers required by the Traefik endpoint. Instead, the nginx endpoint uses an additional `X-Original-Url` header, which stays intact across hops. This makes your auth setup more reliable and predictable.
 
 > ⚠️ **Important**
 >

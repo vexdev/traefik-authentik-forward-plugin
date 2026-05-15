@@ -92,7 +92,7 @@ func (c *Client) request(meta *RequestMeta, path string, query string) (*http.Re
 
 	// add downstream request metadata
 	akReq.Header.Set("X-Forwarded-Host", meta.URL.Host)
-	akReq.Header.Set("X-Original-Uri", meta.URL.String())
+	akReq.Header.Set("X-Original-Url", meta.URL.String())
 
 	// add downstream authentik session cookies
 	for _, c := range meta.Cookies {

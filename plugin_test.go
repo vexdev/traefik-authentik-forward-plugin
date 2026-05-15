@@ -67,9 +67,9 @@ func TestServeHTTP_UpstreamPaths(t *testing.T) {
 
 			// check that the original uri header is set
 			expectedURI := "http://example.com/users"
-			actualURI := req.Header.Get("X-Original-Uri")
+			actualURI := req.Header.Get("X-Original-Url")
 			if actualURI != expectedURI {
-				t.Errorf("expected X-Original-Uri header to be %s, got %s", expectedURI, actualURI)
+				t.Errorf("expected X-Original-Url header to be %s, got %s", expectedURI, actualURI)
 			}
 
 			rw.WriteHeader(http.StatusUnauthorized)
@@ -130,9 +130,9 @@ func TestServeHTTP_UpstreamPaths(t *testing.T) {
 
 			// check that the original uri header is set
 			expectedURI := "http://example.com/users"
-			actualURI := req.Header.Get("X-Original-Uri")
+			actualURI := req.Header.Get("X-Original-Url")
 			if actualURI != expectedURI {
-				t.Errorf("expected X-Original-Uri header to be %s, got %s", expectedURI, actualURI)
+				t.Errorf("expected X-Original-Url header to be %s, got %s", expectedURI, actualURI)
 			}
 
 			rw.WriteHeader(http.StatusUnauthorized)
@@ -191,9 +191,9 @@ func TestServeHTTP_UpstreamPaths(t *testing.T) {
 
 			// check that the original uri header is set
 			expectedURI := "http://example.com/users"
-			actualURI := req.Header.Get("X-Original-Uri")
+			actualURI := req.Header.Get("X-Original-Url")
 			if actualURI != expectedURI {
-				t.Errorf("expected X-Original-Uri header to be %s, got %s", expectedURI, actualURI)
+				t.Errorf("expected X-Original-Url header to be %s, got %s", expectedURI, actualURI)
 			}
 
 			rw.WriteHeader(http.StatusUnauthorized)
@@ -255,9 +255,9 @@ func TestServeHTTP_UpstreamPaths(t *testing.T) {
 
 			// check that the original uri header is set
 			expectedURI := "http://example.com/users"
-			actualURI := req.Header.Get("X-Original-Uri")
+			actualURI := req.Header.Get("X-Original-Url")
 			if actualURI != expectedURI {
-				t.Errorf("expected X-Original-Uri header to be %s, got %s", expectedURI, actualURI)
+				t.Errorf("expected X-Original-Url header to be %s, got %s", expectedURI, actualURI)
 			}
 
 			// check that the authentication cookie is set

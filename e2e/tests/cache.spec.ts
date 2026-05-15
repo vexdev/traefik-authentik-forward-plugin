@@ -20,20 +20,20 @@ test.describe("cache", () => {
 
     // enter authentik username
     await page.waitForSelector(
-      "ak-stage-identification ak-form-element input[name=uidField]",
+      "ak-stage-identification input[name=uidField]",
     );
     await page.fill(
-      "ak-stage-identification ak-form-element input[name=uidField]",
+      "ak-stage-identification input[name=uidField]",
       "akadmin",
     );
     page.click("ak-stage-identification button[type=submit]");
 
     // enter authentik password
     await page.waitForSelector(
-      "ak-stage-password ak-form-element input[name=password]",
+      "ak-stage-password input[name=password]",
     );
     page.fill(
-      "ak-stage-password ak-form-element input[name=password]",
+      "ak-stage-password input[name=password]",
       "authentik",
     );
     page.click("ak-stage-password button[type=submit]");
